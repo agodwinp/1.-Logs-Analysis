@@ -3,7 +3,7 @@ import psycopg2
 
 DBNAME = "news"
 
-def get_most_popular():
+def get_most_popular_articles():
   """Return top 3 most popular articles of all time"""
   db = psycopg2.connect(database=DBNAME)
   c = db.cursor()
@@ -12,6 +12,17 @@ def get_most_popular():
   top_3 = c.fetchall()
   db.close()
   return top_3
+
+def get_most_popular_authors():
+  """Return authors in order of decreasing article views"""
+  db = psycopg2.connect(database=DBNAME)
+  c = db.cursor()
+  query = "select * from author_views"
+  c.execute(query)
+  authors = c.fetchall()
+  db.close()
+  return authors
+
 
 def add_post(content):
   """Add a post to the 'database' with the current timestamp."""
