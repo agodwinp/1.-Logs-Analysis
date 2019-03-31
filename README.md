@@ -1,7 +1,28 @@
-# 1.-Logs-Analysis
+# 1. Logs Analysis
 Project 1 for Udacity FSND
 
-Views:
+***
+
+**Arun Godwin Patel**
+
+### Design
+- The architecture for this application consists of a PostgreSQL database deployed on a Linux VM, along with a Python application that manages the queries and creation of the report.
+- I used the 3 tables articles, authors and log to build this application. I also created 4 views (described below) to increase the processing done at the database level, and to return a concise result set to the Python application.
+- The code itself consists of a module and a file:
+    - logs_analysis.py: this module runs the Python application and returns a formatted report.
+    - logs_analysisdb.py: this file consists of 3 functions that manage the SQL being pushed down and collects the result sets to be used by the application.
+- I decided to create two code files to keep the SQL processing and formatting separate from each other, I found this made it simpler when thinking about how the database and application will communicate.
+
+### How to run it
+- First of all create the views described below within your database, so that the database is consistent with what I was using.
+- Clone the logs_analysis.py and logs_analysisdb.py files into the same directory.
+- From the command line, run the following and the report will be presented:
+
+$ python logs_analysis.py
+
+***
+
+**Views**:
 - log_slug
   - SQL: create view log_slug as select split_part(path, '/', 3) as slug, method, status from log;
   
