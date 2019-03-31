@@ -1,21 +1,19 @@
-#!/usr/bin/env python3
-# 
-# A buggy web service in need of a database.
+# Python application that builds logs analysis report
 
 from logs_analysisdb import get_most_popular_articles, get_most_popular_authors, get_error_prone_days
 
 def most_popular_articles():
-  '''Main page of the forum.'''
+  '''Return the top 3 most popular articles'''
   title = [title for title, num in get_most_popular_articles()]
   return title
 
 def most_popular_authors():
-  """"""
+  '''Return the authors in descending order of article views'''
   authors = [name for name, num in get_most_popular_authors()]
   return authors
 
 def error_prone_days():
-  """"""
+  '''Return the days that received > 1% of errors for page requests'''
   error_days = get_error_prone_days()[0]
   error_days = [i for i in error_days]
   return error_days
