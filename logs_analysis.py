@@ -16,6 +16,7 @@ def most_popular_authors():
 
 if __name__ == '__main__':
   title = most_popular_articles()
-  print "\n1. - The 3 most popular articles of all time are:\n\n", title
+  print "\n1. The 3 most popular articles of all time are:\n\n", title
+  print "\n","-"*50
   authors = most_popular_authors()
-  print "\n\n2. - The most popular article authors of all time are:\n\n", authors
+  print "\n2. The most popular article authors of all time are:\n\n", authors

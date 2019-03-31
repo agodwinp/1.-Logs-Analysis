@@ -23,14 +23,4 @@ def get_most_popular_authors():
   db.close()
   return authors
 
-
-def add_post(content):
-  """Add a post to the 'database' with the current timestamp."""
-  db = psycopg2.connect(database=DBNAME)
-  c = db.cursor()
-  clean_content = bleach.clean(content)
-  c.execute("insert into posts values (%s)", (clean_content,))
-  c.execute("update posts set content = 'ALIEN LIFE FORM' where content like '%fuck%'")
-  c.execute("delete from posts where content = 'ALIEN LIFE FORM'")
-  db.commit()
-  db.close()
+  
