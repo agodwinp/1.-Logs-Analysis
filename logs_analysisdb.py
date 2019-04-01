@@ -9,10 +9,10 @@ def get_most_popular_articles():
     '''Return top 3 most popular articles of all time'''
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    query_pt1 = "select articles.title, count(*) as num from log_slug"
-    query_pt2 = " join articles on articles.slug = log_slug.slug where "
-    query_pt3 = " method='GET' and status='200 OK' group by articles.title"
-    query_pt4 = " order by num desc limit 3;"
+    query_pt1 = "select articles.title, count(*) as num from log_slug "
+    query_pt2 = "join articles on articles.slug = log_slug.slug where "
+    query_pt3 = "status='200 OK' group by articles.title "
+    query_pt4 = "order by num desc limit 3;"
     query = query_pt1+query_pt2+query_pt3+query_pt4
     c.execute(query)
     top_3 = c.fetchall()
