@@ -13,7 +13,7 @@ This logs analysis project is a simple Python application connecting to PostgreS
 
 <br>
 <p align="center">
-    <img src="Architecture.png" width="200", title="Architecture">
+    <img src="Architecture.png" width="800", title="Architecture">
 </p>
 <br>
 
