@@ -1,4 +1,4 @@
-#​ !/usr/bin/env python3
+# !/usr/bin/env python3
 # Database code for the Project 1 "news" DB
 
 import psycopg2

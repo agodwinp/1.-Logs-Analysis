@@ -1,5 +1,5 @@
-#​ !/usr/bin/env python3
-# Python application that builds logs analysis report
+# !/usr/bin/env python3
+# Python application that creates the News Reporter
 
 from logs_analysisdb import get_most_popular_articles
 from logs_analysisdb import get_most_popular_authors, get_error_prone_days
@@ -33,17 +33,17 @@ if __name__ == '__main__':
     print("\n1. The 3 most popular articles of all time are:\n")
     n = 0
     for i in title:
-        print(" ~", i, "was viewed", views[n], "times")
+        print("   ~", i, "was viewed", views[n], "times")
         n += 1
     authors, reads = most_popular_authors()
     print("\n2. The most popular article authors of all time are:\n")
     n = 0
     for i in authors:
-        print(" ~", i, "with", reads[n], "views")
+        print("   ~", i, "with", reads[n], "views")
         n += 1
     error_days = error_prone_days()
     print("\n3. Days that had > 1% of requests leading to an error are:\n")
     for i in error_days:
-        print(" ~", i)
+        print("   ~", i)
     print("\n-----------------------------\n")
     print("Created by Arun Godwin Patel\n")
