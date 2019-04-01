@@ -144,6 +144,8 @@ The handling of the SQL and report creation will be done via a Python applicatio
     $ git clone https://github.com/agodwinp/1.-Logs-Analysis.git
 
 Within the vagrant folder, you should now see a `1. Logs Analysis` folder containing the following files:
+- **Architecture.png**
+    - Not necessary for the Python application, but makes for nice looking documentation. 
 - **README.md**
     - Readme file for the repository.
 - **example_output.txt**
