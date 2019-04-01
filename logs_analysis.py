@@ -8,13 +8,15 @@ from logs_analysisdb import get_most_popular_authors, get_error_prone_days
 def most_popular_articles():
     '''Return the top 3 most popular articles'''
     title = [title for title, num in get_most_popular_articles()]
-    return title
+    views = [num for title, num in get_most_popular_articles()]
+    return title, views
 
 
 def most_popular_authors():
     '''Return the authors in descending order of article views'''
     authors = [name for name, num in get_most_popular_authors()]
-    return authors
+    reads = [num for name, num in get_most_popular_authors()]
+    return authors, reads
 
 
 def error_prone_days():
@@ -25,14 +27,23 @@ def error_prone_days():
 
 
 if __name__ == '__main__':
-    title = most_popular_articles()
-    print("\n1. The 3 most popular articles of all time are:\n\n", title)
-    print("\n", "-"*50)
-    authors = most_popular_authors()
-    print("\n2. The most popular article authors of all time are:\n\n",
-          authors)
-    print("\n", "-"*50)
+    print("\nWelcome to the News Reporter!")
+    print("-----------------------------")
+    title, views = most_popular_articles()
+    print("\n1. The 3 most popular articles of all time are:\n")
+    n = 0
+    for i in title:
+        print(" ~", i, "was viewed", views[n], "times")
+        n += 1
+    authors, reads = most_popular_authors()
+    print("\n2. The most popular article authors of all time are:\n")
+    n = 0
+    for i in authors:
+        print(" ~", i, "with", reads[n], "views")
+        n += 1
     error_days = error_prone_days()
-    print("\n3. Days that had > 1% of requests leading to an error are:\n\n",
-          error_days)
-    print("\n", "-"*50)
+    print("\n3. Days that had > 1% of requests leading to an error are:\n")
+    for i in error_days:
+        print(" ~", i)
+    print("\n-----------------------------\n")
+    print("Created by Arun Godwin Patel\n")
