@@ -11,9 +11,11 @@ This logs analysis project is a simple Python application connecting to PostgreS
 ## Code Design
 - The architecture for this application consists of a PostgreSQL database deployed on a Linux Virtual Machine (VM), along with a Python application that manages the queries and creation of the report. See the below architecture diagram for a detailed overview.
 
+<br>
 <p align="center">
     <img src="Architecture.png" width="200", title="Architecture">
 </p>
+<br>
 
 - I used three tables and 4 views (described below) for the analysis with a focus returning a concise result set to the Python application.
 - The code itself consists of a two Python files:
