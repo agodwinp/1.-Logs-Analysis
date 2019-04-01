@@ -55,13 +55,20 @@ For this project, we will be using Python 3. Check the version of Python install
 If the VM is using Python 2 (returning something that looks like this: "Python 2.x.x"), then we must upgrade this to Python 3 ("Python 3.x.x"). If you already have Python 3 installed, then skip to the next part on installing Psycopg2. To upgrade Python 2 to Python 3, use the following commands:
 
 Download the package lists from the repositories and update them.
+
     $ sudo apt-get update
+
 Install Python 3
+
     $ sudo apt-get install python3
+
 Change the default Python version
+
     $ sudo rm /usr/bin/python
     $ sudo ln -s /usr/bin/python3 /usr/bin/python
+
 Check that Python 3 is installed and active. The output of this command should be something like "Python 3.5.2".
+
     $ python --version
 
 ##### Psycopg2
@@ -79,7 +86,7 @@ Now we need to load the data into a database. To do this run the following comma
 
     $ cd vagrant
     $ psql -d news -f newsdata.sql
-    
+
 - psql - is the PostgreSQL command line program
 - -d news - connect to the database named news which has been set up
 - -f newsdata.sql - run the SQL statements in the file newsdata.sql
@@ -103,12 +110,19 @@ To check that you're working within the news database, your terminal should look
 If it does not, then run "psql news". Then, run the following commands to create the views:
 
 **log_slug**
+
     create view log_slug as select split_part(path, '/', 3) as slug, method, status from log;
+
 **author_views**
+
     create view author_views as select name, num from authors join (select articles.author, count(log_slug.slug) as num from articles left join log_slug on articles.slug=log_slug.slug group by articles.author order by num desc) as a on authors.id=a.author;
+
 **log_daily**
+
     create view log_daily as select date(time) as date, count(*) as requests from log group by date;
+
 **log_daily_pct_error**
+
     create view log_daily_pct_error as select log_daily.date, requests, errors, (errors/requests::float)*100 as pct_error from log_daily join (select date(time) as date, count(*) as errors from log where status = '404 NOT FOUND' group by date) as a on log_daily.date=a.date;
 
 Once you've issued these commands, run "\d" to check that they all exist within the database. Now you're ready to install and run the Python application. 
