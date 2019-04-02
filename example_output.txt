@@ -1,15 +1,24 @@
+
+Welcome to the News Reporter!
+-----------------------------
+
 1. The 3 most popular articles of all time are:
 
-['Candidate is jerk, alleges rival', 'Bears love berries, alleges bear', 'Bad things gone, say good people']
-
---------------------------------------------------
+   ~ Candidate is jerk, alleges rival was viewed 338647 times
+   ~ Bears love berries, alleges bear was viewed 253801 times
+   ~ Bad things gone, say good people was viewed 170098 times
 
 2. The most popular article authors of all time are:
 
-['Ursula La Multa', 'Rudolf von Treppenwitz', 'Anonymous Contributor', 'Markoff Chaney']
+   ~ Ursula La Multa with 507594 views
+   ~ Rudolf von Treppenwitz with 423457 views
+   ~ Anonymous Contributor with 170098 views
+   ~ Markoff Chaney with 84557 views
 
---------------------------------------------------
+3. Days that had > 1% of requests leading to an error are:
 
-3. The days that had > 1% of requests that led to an error are:
+   ~ 2016-07-17 had an error rate of 2.26%
 
-['2016-07-17']
+-----------------------------
+
+Created by Arun Godwin Patel
