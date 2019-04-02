@@ -21,9 +21,9 @@ def most_popular_authors():
 
 def error_prone_days():
     '''Return the days that received > 1% of errors for page requests'''
-    error_days = get_error_prone_days()[0]
-    error_days = [i for i in error_days]
-    return error_days
+    error_days = [date for date, pct_error in get_error_prone_days()]
+    pct = [pct_error for date, pct_error in get_error_prone_days()]
+    return error_days, pct
 
 
 if __name__ == '__main__':
@@ -41,9 +41,11 @@ if __name__ == '__main__':
     for i in authors:
         print("   ~", i, "with", reads[n], "views")
         n += 1
-    error_days = error_prone_days()
+    error_days, pct = error_prone_days()
     print("\n3. Days that had > 1% of requests leading to an error are:\n")
+    n = 0
     for i in error_days:
-        print("   ~", i)
+        print("   ~", i, "had an error rate of", str(round(pct[n], 2))+"%")
+        n += 1
     print("\n-----------------------------\n")
     print("Created by Arun Godwin Patel\n")

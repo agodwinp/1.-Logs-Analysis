@@ -35,7 +35,9 @@ def get_error_prone_days():
     '''Return the days that have had > 1% of requests leading to errors'''
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    query = "select date::text from log_daily_pct_error where pct_error > 1;"
+    query_pt1 = "select date::text, pct_error from log_daily_pct_error "
+    query_pt2 = "where pct_error > 1;"
+    query = query_pt1+query_pt2
     c.execute(query)
     days = c.fetchall()
     db.close()
