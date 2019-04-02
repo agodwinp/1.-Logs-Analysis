@@ -27,7 +27,7 @@ This logs analysis project is a simple application that generates a report based
 ## Installation
 
 ### Installing the VM software
-For this application to run, we need to install and configure a Linux VM on top of your operating system. For this, you will need to install 2 pieces of software:
+For this application to run, we need to install and configure a Linux VM on top of your operating system. For this, you will need to install two pieces of software:
 - **VirtualBox**: https://www.virtualbox.org/wiki/Downloads
     - This is the software that actually runs the VM. Install the *platform package* for your operating system, you do not need the extension pack or the SDK. You do not need to launch VirtualBox after installing it, we can do this via Vagrant. 
 - **Vagrant**: https://www.vagrantup.com/downloads.html
@@ -169,9 +169,7 @@ Now you are ready to run the application! You must ssh into the VM, then access 
 
 When you run the final command, you should receive an output in your terminal like the one described in the txt file.
 
-***
-
-Well done! You ran a Python application connecting to a database server on a Linux VM! Let me know what you think
+***Well done!*** You ran a Python application connecting to a database server on a Linux VM! Let me know what you think!
 
 ***
 
