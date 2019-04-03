@@ -21,8 +21,9 @@ def most_popular_authors():
 
 def error_prone_days():
     '''Return the days that received > 1% of errors for page requests'''
-    error_days = [date for date, pct_error in get_error_prone_days()]
-    pct = [pct_error for date, pct_error in get_error_prone_days()]
+    errors = [(date, pct_error) for date, pct_error in get_error_prone_days()]
+    error_days = [i[0] for i in errors]
+    pct = [i[1] for i in errors]
     return error_days, pct
 
 
